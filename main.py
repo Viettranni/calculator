@@ -12,13 +12,29 @@ def options():
 def main():
     print("Welcome to the 'More than a Calculator'")
 
-    first_input = input("Give me the first number: ")
-    second_input = input("Give me the second number: ")
+    first_input = int(input("Give me the first number: "))
+    second_input = int(input("Give me the second number: "))
 
+    # Displays the 4 options for calculation
     options()
 
-    add = add(first_input, second_input)
-    print(add)
+    option = input("What would you like to do? Please enter 1-4")
+
+    # Calling the calculation logic from the library
+    add = calculations.add(first_input, second_input)
+    subtract = calculations.subtract(first_input, second_input)
+    multiply = calculations.multiply(first_input, second_input)
+    divide = calculations.divide(first_input, second_input)
+
+    if option == 1:
+        return add
+    if option == 2:
+        return subtract
+    if option == 3:
+        return multiply
+    if option == 4:
+        return divide
+
 
 main()
 
