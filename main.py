@@ -20,5 +20,5 @@ def main():
     add = add(first_input, second_input)
     print(add)
 
-
+main()
 
