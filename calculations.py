@@ -15,3 +15,12 @@ def multiply(x, y):
 def divide(x, y):
     return x / y
 
+
+def options():
+    print("What would you like to do?\n"
+        "Option 1: Add\n"
+        "Option 2: Subtract\n"
+        "Option 3: Multiply\n"
+        "Option 4: Divide\n")
+
+

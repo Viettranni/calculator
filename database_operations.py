@@ -51,3 +51,30 @@ def save_to_database(first_input, second_input, operation, answer):
         if conn.is_connected():
             cursor.close()
             conn.close()
+
+
+def get_history():
+    try:
+        conn = mysql.connector.connect(
+            host='localhost',
+            database='calculator_db',
+            user='root',
+            password='root'
+        )
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM history")
+        rows = cursor.fetchall()
+        if rows:
+            for idx, row in enumerate(rows, start=1):
+                id, first_input, second_input, operation, answer = row
+                print(
+                    f"{idx}. First input = {first_input}, Second input = {second_input}, Operation = {operation}, Answer = {answer}")
+        else:
+            print("No history found.")
+
+    except Error as e:
+        print(f"Error: {e}")
+    finally:
+        if conn.is_connected():
+            cursor.close()
+            conn.close()
