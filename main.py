@@ -18,22 +18,20 @@ def main():
     # Displays the 4 options for calculation
     options()
 
-    option = input("What would you like to do? Please enter 1-4")
+    option = input("What would you like to do? Please enter 1-4: ")
 
-    # Calling the calculation logic from the library
-    add = calculations.add(first_input, second_input)
-    subtract = calculations.subtract(first_input, second_input)
-    multiply = calculations.multiply(first_input, second_input)
-    divide = calculations.divide(first_input, second_input)
+    if option in ['1', '2', '3', '4']:
+        if option == '1':
+            print(f'{first_input} + {second_input} = {calculations.add(first_input, second_input)}')
+        elif option == '2':
+            print(f'{first_input} - {second_input} = {calculations.add(first_input, second_input)}')
+        elif option == '3':
+            return print(f'{first_input} * {second_input} = {calculations.add(first_input, second_input)}')
+        elif option == '4':
+            return print(f'{first_input} / {second_input} = {calculations.add(first_input, second_input)}')
+        else:
+            print("Please select a number within 1-4!")
 
-    if option == 1:
-        return add
-    if option == 2:
-        return subtract
-    if option == 3:
-        return multiply
-    if option == 4:
-        return divide
 
 
 main()
