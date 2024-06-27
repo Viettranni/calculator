@@ -51,17 +51,3 @@ def save_to_database(first_input, second_input, operation, answer):
         if conn.is_connected():
             cursor.close()
             conn.close()
-
-# class Database:
-#     def __init__(self):
-#         self.conn = mysql.connector.connect(
-#             host='localhost',
-#             port=3306,
-#             database='calculator',
-#             user='root',
-#             password='root',
-#             autocommit=True
-#         )
-#
-#     def get_conn(self):
-#         return self.conn
