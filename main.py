@@ -1,4 +1,5 @@
 import calculations
+from database_operations import save_to_database, create_database
 
 
 def options():
@@ -10,29 +11,52 @@ def options():
 
 
 def main():
-    print("Welcome to the 'More than a Calculator'")
+    while True:
+        # Creating the database
+        create_database()
 
-    first_input = int(input("Give me the first number: "))
-    second_input = int(input("Give me the second number: "))
+        print("Welcome to the 'More than a Calculator'")
 
-    # Displays the 4 options for calculation
-    options()
+        first_input = int(input("Give me the first number: "))
+        second_input = int(input("Give me the second number: "))
 
-    option = input("What would you like to do? Please enter 1-4: ")
+        # Displays the 4 options for calculation
+        options()
 
-    if option in ['1', '2', '3', '4']:
-        if option == '1':
-            print(f'{first_input} + {second_input} = {calculations.add(first_input, second_input)}')
-        elif option == '2':
-            print(f'{first_input} - {second_input} = {calculations.add(first_input, second_input)}')
-        elif option == '3':
-            return print(f'{first_input} * {second_input} = {calculations.add(first_input, second_input)}')
-        elif option == '4':
-            return print(f'{first_input} / {second_input} = {calculations.add(first_input, second_input)}')
-    else:
-        print("Please select a number within 1-4!")
-        main()
+        option = input("What would you like to do? Please enter 1-4: ")
 
+        if option in ['1', '2', '3', '4']:
+            if option == '1':
+                answer = calculations.add(first_input, second_input)
+                operation = 'add'
+                print(f'{first_input} + {second_input} = {answer}')
+            elif option == '2':
+                answer = calculations.subtract(first_input, second_input)
+                operation = 'subtract'
+                print(f'{first_input} - {second_input} = {answer}')
+            elif option == '3':
+                answer = calculations.multiply(first_input, second_input)
+                operation = 'multiply'
+                print(f'{first_input} * {second_input} = {answer}')
+            elif option == '4':
+                answer = calculations.divide(first_input, second_input)
+                operation = 'divide'
+                print(f'{first_input} / {second_input} = {answer}')
+        else:
+            print("Please select a number within 1-4!")
+            continue
+
+        # Asks the user wether they want to save this action to the database/history
+        ask = input("Do you want to save the calculation to the history? Please answer 'yes' or 'no'. ").strip().lower()
+
+        if ask in ["yes", "no"]:
+            if ask == 'yes':
+                save_to_database(first_input, second_input, operation, answer)
+                print("Calculation saved to history.")
+            elif ask == 'no':
+                print("Calculation not saved.")
+        else:
+            print("Invalid input, please type either 'yes' or 'no'.")
 
 
 main()
