@@ -29,8 +29,9 @@ def main():
             return print(f'{first_input} * {second_input} = {calculations.add(first_input, second_input)}')
         elif option == '4':
             return print(f'{first_input} / {second_input} = {calculations.add(first_input, second_input)}')
-        else:
-            print("Please select a number within 1-4!")
+    else:
+        print("Please select a number within 1-4!")
+        main()
 
 
 
