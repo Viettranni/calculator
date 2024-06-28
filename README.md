@@ -2,5 +2,7 @@
 More than a calculator
 
 Goal:
-- Create the logic on the server side
-- Add some features like history and so on
+- Creating the structure for the project and initial logic
+- Implement the history using MariaDB database to store the results
+- Layout the basic interface for the calculator 
+- Add weather to the right upper corner based on the users current location using their ip
