@@ -11,6 +11,7 @@ def main():
 
         print("Welcome to the 'More than a Calculator'")
         continue_decision = input("If you wish to end the session, write 'quit' otherwise press ENTER ")
+
         if continue_decision in ['quit']:
             print("Thank you for joining 'More than a Calculator'! ")
             break
