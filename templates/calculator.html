@@ -1,1 +1,9 @@
-extend
+{% extends "base.html" %}
+
+{% block title  %} Calculator {% endblock %}
+
+    <p>This is the home page content.</p>
+    <button onclick="changeText()">Click Me</button>
+    <p id="text">This text will change.</p>
+
+{% block content %}{% endblock %}

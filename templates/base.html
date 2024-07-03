@@ -5,11 +5,23 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>{% block title %}My Website{% endblock %}</title>
+    <link rel="stylesheet" href="../statics/css/styles.css">
 </head>
 <body>
 
+    <header>
+        <h1>Welcome to More than a Calculator!</h1>
+    </header>
 
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+
+    <footer>
+        <p>Contact Support</p>
+    </footer>
 
 </body>
 </html>
