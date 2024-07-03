@@ -1,18 +1,22 @@
-import requests
+from flask import Flask, render_template
 import geocoder
+from dotenv import load_dotenv
+import os
 
-API_KEY = 'da3a7df90e87c269d5e1f792410788f3'
+# This is where you define the flask app
 
+# Getting/loading the environment variables from .env file
+load_dotenv()
+
+# Creating a Flask instance
+app = Flask(__name__)
+
+# API key
+api_key = os.getenv('API_KEY')
+
+def home():
+    return render_template('base.html')
 
 def get_location():
     g = geocoder.ip('me')
     print(g.latlng)
-
-
-def main():
-    location = get_location()
-    if location:
-        lat, lon = location
-        print(location)
-
-get_location()
